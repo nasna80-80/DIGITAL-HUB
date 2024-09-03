@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>RegistrationForm_v10 by Colorlib</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- LINEARICONS -->
+		<link rel="stylesheet" href="fonts/linearicons/style.css">
+		
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="/static/register/css/style.css">
+	</head>
+
+	<body>
+
+		<div class="wrapper">
+			<div class="inner">
+				<img src="/static/register/images/image-1.png" alt="" class="image-1">
+				<form action="">
+					<h3>New Account?</h3>
+					<div class="form-holder">
+						<span class="lnr lnr-user"></span>
+						{{ form.Name }}
+					</div>
+					<div class="form-holder">
+						<span class="lnr lnr-phone-handset"></span>
+						{{ form.Phone }}
+					</div>
+                    <p id="phn"></p>
+					<div class="form-holder">
+						<span class="lnr lnr-envelope"></span>
+						{{ form.Email }}
+					</div>
+                    <p id="emi"></p>
+					<div class="form-holder">
+						<span class="lnr lnr-lock"></span>
+						{{ form.Place }}
+					</div>
+					<div class="form-holder">
+						<span class="lnr lnr-lock"></span>
+						{{ form.Password }}
+					</div>
+					<button>
+						<span>Register</span>
+					</button>
+				</form>
+				<img src="/static/register/images/image-2.png" alt="" class="image-2">
+			</div>
+			
+		</div>
+		
+		<script src="/static/register/js/jquery-3.3.1.min.js"></script>
+		<script src="/static/register/js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#id_Email').change(function () {
+                $.ajax({
+                    url: '/myapp/emilchnge/',
+                    type: 'POST',
+                    data: {
+                        Email: $(this).val(),
+                        csrfmiddlewaretoken: $('[name=csrfmiddlewaretoken]').val()
+                    },
+                    success: function (response) {
+                        if (response.status == true) {
+                            $('#emai').html('Number already exists').css('color', 'red');
+                            $('#id_Email').css('border', '2px solid red');
+                        } else {
+                            $('#emai').html('Success').css('color', 'green');
+                            $('#id_Email').css('border', '2px solid green');
+                        }
+                    },
+                    error: function (xhr, errmsg, err) {
+                        console.log(xhr.status + ": " + xhr.responseText);
+                    }
+                });
+            });
+        });
+    </script>
+        <script>
+        $(document).ready(function () {
+            $('#id_Phone').change(function () {
+                $.ajax({
+                    url: '/myapp/phnchnge/',
+                    type: 'POST',
+                    data: {
+                        Phone: $(this).val(),
+                        csrfmiddlewaretoken: $('[name=csrfmiddlewaretoken]').val()
+                    },
+                    success: function (response) {
+                        if (response.status == true) {
+                            $('#phn').html('Number already exists').css('color', 'red');
+                            $('#id_Phone').css('border', '2px solid red');
+                        } else {
+                            $('#phn').html('Success').css('color', 'green');
+                            $('#id_Phone').css('border', '2px solid green');
+                        }
+                    },
+                    error: function (xhr, errmsg, err) {
+                        console.log(xhr.status + ": " + xhr.responseText);
+                    }
+                });
+            });
+        });
+    </script>
+	</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

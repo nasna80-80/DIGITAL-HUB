@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+{% extends 'admin_index_home.html' %}
+{% block body %}
+<form action="/myapp/chngepass/" method="post">
+    {% csrf_token %}
+    <table class="table table-bordered">
+        <tr>
+            <td>current Password:</td>
+            <td><input type="password"  name="pas1" class="form-control" required></td>
+        </tr>
+        <tr>
+            <td>New Password:</td>
+            <td><input type="text" name="npas1"class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+  title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" required></td>
+        </tr>
+        <tr>
+            <td>Confirm Password:</td>
+            <td><input type="text" name="cpas1"class="form-control"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+  title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" required></td>
+        </tr>
+
+    </table>
+    <button class="btn btn-primary" onclick="return check_pass()">Submit</button>
+</form>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+
+    function check_pass() {
+        var npass=document.getElementById('npass').value
+        var cpass=document.getElementById('cpass').value
+        var er=document.getElementById('incalid')
+
+        if (npass==cpass){
+            return true
+        }
+        else{
+            document.getElementById('incalid').innerHTML="Incorrect Password"
+            return false
+        }
+
+
+    }
+
+    </script>
+{% endblock %}

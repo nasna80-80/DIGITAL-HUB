@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Gallery Item</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h2>Edit Gallery Item</h2>
+    <form method="post" action="/myapp/view_galEdit/" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{ gallery.id }}">
+        <label>Image</label>
+        <input type="file" name="img1" value="{{ gallery.Image }}"><br><br><br>
+        <label>Description</label>
+        <textarea name="des1" placeholder="description"rows="5" cols="40">{{ gallery.Description }}</textarea>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+    </form>
+</div>
+</body>
+</html>
+

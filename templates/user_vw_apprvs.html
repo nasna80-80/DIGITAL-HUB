@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+{% extends 'user_home_index.html' %}
+{% block body %}
+<div class="container">
+    <h2>Approved Requests</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Services</th>
+                <th>Descreptions</th>
+                <th>Price</th>
+                <th>Payment</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in approved_requests %}
+            <tr>
+                <td>{{ i.SERVICES.Service}}</td>
+                <td>{{ i.SERVICES.Description }}</td>
+                 <td>{{ i.SERVICES.Price }}</td>
+            <td><a href="/myapp/payment/{{ i.id }}">Payment</a> </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

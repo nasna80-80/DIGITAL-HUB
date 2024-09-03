@@ -1,0 +1,30 @@
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">{% extends 'admin_index_home.html' %}
+{% block body %}
+<table class="table table-bordered">
+    <tr>
+        <th>SI No</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th>User Name</th>
+        <th>User Email</th>
+        <th>Service</th>
+        <th>Approve</th>
+        <th>Reject</th>
+    </tr>
+    <tr>
+    {% for i in data %}
+
+    <td>{{ forloop.counter }}</td>
+    <td>{{ i.Date }}</td>
+    <td>{{ i.Status }}</td>
+    <td>{{i.REGISTER.name  }}</td>
+    <td>{{i.REGISTER.email  }}</td>
+    <td>{{ i.SERVICES.Service }}</td>
+        <td><a href="/myapp/approve/ {{ i.id }}">Approve</a></td>
+        <td><a href="/myapp/Reject/ {{ i.id }}">Reject</a></td>
+     </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

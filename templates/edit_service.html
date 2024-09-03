@@ -1,0 +1,30 @@
+{% extends 'admin_index_home.html' %}
+{% block body %}
+<form action="/myapp/view_edview/" method="post">
+    {% csrf_token %}
+    <table class="table table-bordered">
+        <tr>
+            <td>
+                <input type="hidden" name="id" value="{{ service.id }}">
+            </td>
+        </tr>
+        <tr>
+            <td><label>Services</label></td>
+            <td><textarea name="S1" placeholder="service" rows="5" cols="40" class="form-control" required>{{ service.Service  }}</textarea></td>
+        </tr>
+        <tr>
+            <td><label>Descriptions</label></td>
+            <td><textarea name="D1" placeholder="description" rows="5" cols="40"class="form-control" required>{{ service.Description  }}</textarea></td>
+        </tr>
+        <tr>
+            <td><label>Price</label></td>
+            <td><textarea name="P1" placeholder="price" rows="5" cols="40"class="form-control" required>{{ service.Price }}</textarea></td>
+        </tr>
+        <td>
+             <button type="submit" class="btn btn-primary">Save Changes</button>
+        </td>
+        </tr>
+
+    </table>
+</form>
+{% endblock %}

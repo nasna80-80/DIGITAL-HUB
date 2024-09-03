@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+{% extends 'user_home_index.html' %}
+{% block body %}
+<form >
+    <table class="table table-bordered">
+        <tr>
+            <td>S.I</td>
+             <td>Complaint</td>
+             <td>Date</td>
+            <td>Reply</td>
+        </tr>
+        {% for i in data %}
+    <tr>
+
+            <td>{{ forloop.counter }}</td>
+            <td>{{ i.complaint }}</td>
+            <td>{{ i.Date }}</td>
+            <td>{{ i.Reply }}</td>
+
+
+    </tr>
+         {% endfor %}
+
+
+    </table>
+</form>
+{% endblock %}

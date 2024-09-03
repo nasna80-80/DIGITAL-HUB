@@ -1,0 +1,12 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+{% extends 'admin_index_home.html' %}
+{% block body %}
+<h2>Create Services</h2>
+    <table class="table table-bordered">
+    <form action=""method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-primary" >Create</button>
+    </form>
+    </table>
+{% endblock %}

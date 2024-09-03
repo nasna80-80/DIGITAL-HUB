@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+{% extends 'admin_index_home.html' %}
+{% block body %}
+<h2>Company Profile</h2>
+{% for i in company %}
+<table class="table table-bordered">
+     <tr>
+         <th><strong>Company Name:</strong></th>
+         <td>{{ i.CompanyName }}</td>
+     </tr>
+    <tr>
+        <th><strong>Address:</strong></th>
+        <td>{{ i.Address }}</td>
+    </tr>
+     <tr>
+         <th><strong>Phone Number:</strong></th>
+         <td>{{ i.PhoneNumber }}</td>
+     </tr>
+
+     <tr>
+         <th><strong>Email: </strong></th>
+         <td>{{ i.Email }}</td>
+     </tr>
+     <tr>
+         <th><strong>Website:</strong></th>
+         <td>{{ i.Website }}</td>
+     </tr>
+
+       <tr>
+           <th><strong>Social Media:</strong></th>
+           <td>{{ i.SocialMedia }}</td>
+       </tr>
+
+      <tr>
+          <th><strong>About Us:</strong> </th>
+          <td>{{ i.AboutUs }}</td>
+      </tr>
+       <tr>
+           <th><strong>Service Offered:</strong> </th>
+           <td>{{ i.ServiceOffered }}</td>
+        </tr>
+
+       <tr>
+            <th><strong>Logo:</strong>  </th>
+            <td><img src="{{ i.Logo }}" width="100px" height="100px" alt="Company Logo"></td>
+
+        </tr>
+
+
+</table>
+{% endfor %}
+{% endblock %}

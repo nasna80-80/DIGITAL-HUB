@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+{% extends 'admin_index_home.html' %}
+{% block body %}
+<form>
+<h3>Gallery Items</h3>
+    <div class="row">
+        {% for item in gallery_items %}
+        <div class="col-md-3">
+            <img src="{{ item.Image }}"  class="img-fluid" alt="Gallery Image" style="width:300px; height:200px;">
+            <p>{{ item.Description }}</p>
+        <a href="/myapp/edit_gallery/{{ item.id }}"class="btn btn-secondary" style="width:100%;">Edit</a><br><br>
+        <a href="/myapp/gal_delete/{{ item.id }}"class="btn btn-secondary"style="width:100%;">Delete</a>
+        </div>
+        {% endfor %}
+    </div>
+</form>
+{% endblock %}

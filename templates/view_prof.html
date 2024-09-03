@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+{% extends 'user_home_index.html'%}
+{% block body %}
+<table class="table table-bordered">
+    <tr>
+        <th>NAME</th>
+        <td>{{ data.name }}</td>
+    </tr>
+    <tr>
+        <th>PASSWORD</th>
+        <td>{{ data.password }}</td>
+    </tr>
+    <tr>
+        <th>EMAIL</th>
+        <td>{{ data.email }}</td>
+    </tr>
+    <tr>
+        <th>PLACE</th>
+        <td>{{ data.place }}</td>
+    </tr>
+    <tr>
+        <th>PHONE</th>
+        <td>{{ data.phone }}</td>
+    </tr>
+
+</table>
+<a href="/myapp/edit_prf/{{ data.id }}"> <button class="btn btn-primary">EDIT</button></a>
+{% endblock %}

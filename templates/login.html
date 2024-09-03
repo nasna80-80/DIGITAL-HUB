@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+</head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<body>
+<form action="" method="post" >
+    {% csrf_token %}
+{{ form.as_p }}
+<button>Login</button><br>
+    <a href="/myapp/register/">New user?click me</a>
+    </form>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+{% extends 'user_home_index.html' %}
+{% block body %}
+<div class="container">
+    <h2>Explore Services</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Request</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for service in services %}
+            <tr>
+                <td>{{ service.Service }}</td>
+                <td>{{ service.Description }}</td>
+                <td>{{ service.Price }}</td>
+            <td><a href="/myapp/request/{{ service.id }}">Request</a> </td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

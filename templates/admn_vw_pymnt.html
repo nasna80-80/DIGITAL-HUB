@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+{% extends 'admin_index_home.html' %}
+{% block body %}
+<table class="table table-bordered">
+    <tr>
+        <th>SI No</th>
+        <th>Date</th>
+        <th>name</th>
+        <th>Service</th>
+        <th>Price</th>
+    </tr>
+    {% for i in data %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.Date }}</td>
+        <td>{{ i.REGISTER.name }}</td>
+        <td>{{ i.SERVICES.Service }}</td>
+        <td>{{ i.SERVICES.Price }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

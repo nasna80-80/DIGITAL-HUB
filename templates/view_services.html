@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+{% extends 'admin_index_home.html' %}
+{% block body %}
+<div class="container">
+    <h2>Services</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for service in service %}
+            <tr>
+                <td>{{ service.Service }}</td>
+                <td>{{ service.Description }}</td>
+                <td>{{ service.Price }}</td>
+                <td><a href="/myapp/edit_service/ {{ service.id }}#ab">Edit</a></td>
+                <td><a href="/myapp/delete/ {{ service.id }}" onclick="return confirm('Are you Sure')">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
